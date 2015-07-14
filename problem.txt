@@ -1,0 +1,78 @@
+<problem>
+  <style>
+    .survey-response div.CodeMirror {
+    	height:300px !important;
+    }
+    .cm-s-default .cm-error {
+      color:#000 !important; 
+    }
+    .cm-number {
+      color:#000 !important; 
+    }
+    .cm-keyword {
+      color:#000 !important; 
+    }
+    div.grader-status {
+      display:none !important;
+    }
+    span.cm-string {
+      color:#000 !important;
+    }
+    .survey-response div.CodeMirror {
+   	  font-family:Helvetica,sans-serif !important;
+      font-size:120%;
+    }
+    .survey-response div.CodeMirror-gutters, .survey-response .CodeMirror-linenumber {
+      display:none !important;
+    }
+    .survey-response div.CodeMirror-scroll {
+      padding-left:10px;
+    }
+    .survey-response pre {
+        white-space:normal !important;
+        overflow:auto !important;
+    }
+    .external-grader-message {
+        color:red !important;
+        display:none;
+    }
+    div#feedback {
+        display:none;
+    } 
+    
+    
+  </style>
+  <script type="text/javascript">
+  </script>
+  <script type="loncapa/python">
+def always_correct(ans, exp):
+	return True
+def hint_fn(answer_ids, student_answers, new_cmap, old_cmap):
+    aid = answer_ids[0]
+    hint = "COMPLETED"
+    if hint:
+        new_cmap.set_hint_and_mode(aid,hint,'always')
+  </script>
+  <p>Take a minute to respond to the following questions in the box provided below. When you have finished responding, click the Check button to find out more. This is an ungraded activity and does not contribute to your overall mark in the course.</p>
+
+  <p><b>How would you define scientific consensus? What wouldn't be considered consensus? How does a scientific consensus form?</b></p>
+  <div class="survey-response">
+    <customresponse cfn="always_correct">
+      <textbox/>
+      <hintgroup hintfn="hint_fn"/>
+    </customresponse>
+  </div>
+  <script type="text/javascript">
+    setInterval(function() {
+      if($('.external-grader-message').text().trim() == "COMPLETED") {
+        $('div#feedback').css({'display':'block'});
+      }
+      if($('input.check').val("Check")) {
+        $('input.check').val('Submit');
+      } else {
+        $('input.check').val('Submitting');
+      }
+    },300);
+  </script>
+</problem>
+

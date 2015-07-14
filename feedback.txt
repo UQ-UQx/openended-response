@@ -1,0 +1,9 @@
+<style>
+  div#feedback p, div#feedback ul li {
+    color:blue; 
+  }
+</style>
+<div id="feedback">
+    <p>As you watch the 4 videos in this subsection, you will learn more about the nature of scientific consensus. After the lectures, you will be asked to reflect on what you've heard and refine your definition of consensus.</p>
+</div>
+
